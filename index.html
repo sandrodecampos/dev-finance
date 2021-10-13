@@ -4,13 +4,17 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dev Finance</title>
+  <title>Dev Finance$</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <h1 id="logo">Dev.Finance$</h1>
   </header>
-  <main>
+  <main class="container">
     <section id="balance">
       <h2>Balance</h2>
       <div class="card">
@@ -19,11 +23,11 @@
       </div>
       <div class="card">
         <h3>Expenses</h3>
-        <p>$2000.00</p>
+        <p>$1020.00</p>
       </div>
-      <div class="card">
+      <div class="card total">
         <h3>Total</h3>
-        <p>$3000.00</p>
+        <p>$3980.00</p>
       </div>      
     </section>
     <section id="transactions">
@@ -38,19 +42,19 @@
         </thead>
         <tbody>
           <tr>
-            <td>Web development Hotel</td>
-            <td>$5000.00</td>
-            <td>2021-01-22</td>
+            <td class="description">Web development Hotel</td>
+            <td class="income">$5000.00</td>
+            <td class="date">2021-01-22</td>
           </tr>
           <tr>
-            <td>Lunch A&W</td>
-            <td>-$20.00</td>
-            <td>2021-01-25</td>
+            <td class="description">Lunch A&W</td>
+            <td class="expense">-$20.00</td>
+            <td class="date">2021-01-25</td>
           </tr>
           <tr>
-            <td>Rent</td>
-            <td>-$1000.00</td>
-            <td>2021-02-05</td>
+            <td class="description">Rent</td>
+            <td class="expense">-$1000.00</td>
+            <td class="date">2021-02-05</td>
           </tr>
         </tbody>
       </table>
