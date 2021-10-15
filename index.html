@@ -12,32 +12,43 @@
 </head>
 <body>
   <header>
-    <h1 id="logo">Dev.Finance$</h1>
+    <img src="./assets/logo.svg" alt="Logo Dev Finance">
   </header>
   <main class="container">
     <section id="balance">
-      <h2>Balance</h2>
+      <h2 class="sr-only">Balance</h2>
       <div class="card">
-        <h3>Incomes</h3>
+        <h3>
+          <span>Incomes</span>
+          <img src="./assets/income.svg" alt="Income image">
+        </h3>
         <p>$5000.00</p>
       </div>
       <div class="card">
-        <h3>Expenses</h3>
+        <h3>
+          <span>Expenses</span>
+          <img src="./assets/expense.svg" alt="Expense image">
+        </h3>
         <p>$1020.00</p>
       </div>
       <div class="card total">
-        <h3>Total</h3>
+        <h3>
+          <span>Total</span>
+          <img src="./assets/total.svg" alt="Total image">
+        </h3>
         <p>$3980.00</p>
       </div>      
     </section>
     <section id="transactions">
-      <h2>Transactions</h2>
+      <h2 class="sr-only">Transactions</h2>
+      <a href="#" class="button new">+ New Transaction</a>
       <table id="data-table-transaction">
         <thead>
          <tr>
           <th>Description</th>
           <th>Amount</th>
           <th>Date</th>
+          <th></th>
          </tr> 
         </thead>
         <tbody>
@@ -45,16 +56,19 @@
             <td class="description">Web development Hotel</td>
             <td class="income">$5000.00</td>
             <td class="date">2021-01-22</td>
+            <td><img src="./assets/minus.svg" alt="remove transaction"></td>
           </tr>
           <tr>
             <td class="description">Lunch A&W</td>
             <td class="expense">-$20.00</td>
             <td class="date">2021-01-25</td>
+            <td><img src="./assets/minus.svg" alt="remove transaction"></td>
           </tr>
           <tr>
             <td class="description">Rent</td>
             <td class="expense">-$1000.00</td>
             <td class="date">2021-02-05</td>
+            <td><img src="./assets/minus.svg" alt="remove transaction"></td>
           </tr>
         </tbody>
       </table>
