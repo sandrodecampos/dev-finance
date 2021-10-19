@@ -8,20 +8,17 @@ function modalToggle(name){
 }
 
 const transactions = [
-  {
-    id: 1,
+  {    
     description: 'Web development Hotel',
     amount: 500000,
     date: '2021-01-22'
   },
   {
-    id: 2,
     description: 'Lunch A&W',
     amount: -2000,
     date: '2021-01-25'
   },
   {
-    id: 3,
     description: 'Rent',
     amount: -100000,
     date: '2021-02-05'
@@ -29,6 +26,20 @@ const transactions = [
 ]
 
 const Transaction = {
+  all:transactions,
+
+  add(transaction){
+    Transaction.all.push(transaction)
+
+    App.reload();
+  },
+
+  remove(index) {
+    Transaction.all.splice(index, 1);
+
+    App.reload();
+  },
+
   incomes() {
     let income = 0;
     transactions.forEach(transactions => {
@@ -38,6 +49,7 @@ const Transaction = {
     })
     return income;
   },
+
   expenses() {
     let expense = 0;
     transactions.forEach(transactions => {
@@ -47,6 +59,7 @@ const Transaction = {
     })
     return expense;
   },
+
   total() {
     return Transaction.incomes() + Transaction.expenses();
   }
@@ -82,6 +95,10 @@ const DOM = {
     document
       .getElementById('total-display')
       .innerHTML = Utils.formatCurrency(Transaction.total());
+  },
+
+  clearTransaction() {
+    DOM.transactionsContainer.innerHTML = "";
   }
 
 }
@@ -101,8 +118,31 @@ const Utils =  {
   }
 }
 
-transactions.forEach(transaction => {
-  DOM.addTransaction(transaction);
+const App = {
+  init(){
+    Transaction.all.forEach(transaction => {
+      DOM.addTransaction(transaction);
+    });
+
+    DOM.updateBalance();
+    
+  },
+
+  reload(){
+    DOM.clearTransaction();
+    App.init();
+  }
+}
+
+App.init();
+
+//testing add new transaction
+Transaction.add({
+  id: 4,
+  description: 'Internet',
+  amount: -10000,
+  date: '2021-02-15'
 })
 
-DOM.updateBalance();
+
+
