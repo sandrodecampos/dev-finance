@@ -61,7 +61,7 @@
     <div class="modal">
       <div id="form">
         <h2>New Transaction</h2>
-        <form action="">
+        <form action="" onsubmit="Form.submit(event)">
           <div class="input-group">
             <label class="sr-only" for="description">Description</label>
             <input type="text" id="description" name="description" placeholder="Description">
@@ -77,7 +77,7 @@
           </div>
           <div class="input-group actions">
             <a href="#" class="button cancel" onclick="modalToggle('.modal-overlay')">Cancel</a>
-            <button onclick="Modal.close()">Save</button>
+            <button onclick="modalToggle('.modal-overlay')">Save</button>
           </div>
         </form>        
       </div>
