@@ -7,26 +7,19 @@ function modalToggle(name){
   }
 }
 
-const transactions = [
-  {    
-    description: 'Web development Hotel',
-    amount: 500000,
-    date: '2021-01-22'
+const Storage = {
+  get(){
+    return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [];
   },
-  {
-    description: 'Lunch A&W',
-    amount: -2000,
-    date: '2021-01-25'
-  },
-  {
-    description: 'Rent',
-    amount: -100000,
-    date: '2021-02-05'
-  },
-]
+
+  set(transactions) {
+    localStorage.setItem("dev.finances:transactions",
+    JSON.stringify(transactions));
+  }
+}
 
 const Transaction = {
-  all:transactions,
+  all: Storage.get(),
 
   add(transaction){
     Transaction.all.push(transaction)
@@ -42,7 +35,7 @@ const Transaction = {
 
   incomes() {
     let income = 0;
-    transactions.forEach(transactions => {
+    Transaction.all.forEach(transactions => {
       if(transactions.amount > 0) {
         income += transactions.amount;
       }
@@ -52,7 +45,7 @@ const Transaction = {
 
   expenses() {
     let expense = 0;
-    transactions.forEach(transactions => {
+    Transaction.all.forEach(transactions => {
       if(transactions.amount < 0){
         expense += transactions.amount;
       }
@@ -110,7 +103,7 @@ const Utils =  {
   formatAmount(value) {
     value = Number(value) * 100;
 
-    return value;
+    return Math.round(value);
   },
 
   // formatDate(date) {
@@ -201,6 +194,8 @@ const App = {
     });
 
     DOM.updateBalance();
+
+    Storage.set(Transaction.all);
     
   },
 
